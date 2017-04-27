@@ -8,8 +8,8 @@ const connection = require('express-myconnection');
 // //////////////////////////////
 // instances
 const app  = express();
-const port = process.env.PORT || 3000;
 // //////////////////////////////
+app.port   = process.env.PORT || 3000;
 app.use(
   connection(mysql, {
     host: process.env.HOST,
@@ -17,10 +17,8 @@ app.use(
     password: process.env.PASSWORD,
     port: process.env.PORT, //port mysql
     database: process.env.DB
-  },'request')
+  },'pool')
 );
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 // //////////////////////////////
 
 // //////////////////////////////
