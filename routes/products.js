@@ -1,7 +1,6 @@
-const router  = require('./index');
-const Product = require('../src/product');
-
-const product = new Product();
+const express = require('express');
+const router  = express.Router();
+const product = require('../src/Product');
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
@@ -9,13 +8,8 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.get('/', product.get);
+router.get('/', product.getAll);
 
-router.get('/:product', (req, res) => {
-    res.send({
-      teste: "Testando essa merda!",
-      id_param: parseInt(req.params.product)
-    }).json();
-});
+router.get('/:product', product.get);
 
 module.exports = router;

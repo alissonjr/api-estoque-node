@@ -1,23 +1,20 @@
-// const module = require('module');
-class Product {
-    constructor(name, value) {
-        this.name = name;
-        this.value = value;
-    }
+const connection = require('../config/config');
 
-    logName() {
-        console.log(`The product's name is: ${this.name}`);
+exports.getAll = (req, res, next) => {
+    try {
+      connection.query('SELECT * FROM produtos', [], (err,result) => {
+        if (err) return err;
+        res.end(JSON.stringify(result[0]));
+      });
+    } catch (e) {
+      return e;
+      res.end(e);
     }
+}
 
-    get(req, res, next) {
-        req.getConnection((err,connection) => {
-            if (err) return err;
-            connection.query('SELECT * FROM produtos', [], (err,result) => {
-                if (err) return err;
-                res.end(JSON.stringify(result[0]));
-            });
-        });
-    }
-};
-
-module.exports = Product;
+exports.get = (req, res, next) => {
+    res.send({
+      teste: "Testando essa merda!",
+      id_param: parseInt(req.params.product)
+    }).json();
+}
