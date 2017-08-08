@@ -16,7 +16,8 @@
     "express-myconnection": "^1.0.4",
     "mongoose": "^4.9.6",
     "mysql": "^2.13.0",
-    "node-env-file": "^0.1.8"
+    "node-env-file": "^0.1.8",
+    "sequelize": "^4.4.2"
   },
   "devDependencies": {
     "gulp-documentation": "^3.1.0",
