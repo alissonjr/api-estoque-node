@@ -1,5 +1,5 @@
 import HttpStatus from 'http-status';
-import Product from '../interfaces/Product';
+import User from '../interfaces/User';
 
 /**
  * Controller of all Users methods
@@ -59,7 +59,7 @@ export default class UsersController {
     }
 
     /**
-     * Get a specific Product
+     * Get a specific user
      * 
      * @param {number} id 
      * @memberof UsersController
@@ -71,34 +71,34 @@ export default class UsersController {
     }
 
     /**
-     * Create a new product
+     * Create a new user
      * 
-     * @param {Product} data - informations of new Product
+     * @param {User} data - informations of new User
      * @memberof UsersController
      */
-    public create(data: Product) {
+    public create(data: User) {
         return this.Users.create(data)
             .then(result => this.defaultResponse(result, HttpStatus.CREATED))
             .catch(error => this.errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY));
     }
 
     /**
-     * Update a product
+     * Update a user
      * 
-     * @param {Product} data - informations to be updated
-     * @param {number} id - id of product that will be updated
+     * @param {User} data - informations to be updated
+     * @param {number} id - id of user that will be updated
      * @memberof UsersController
      */
-    public update(data: Product, id: number) {
+    public update(data: User, id: number) {
         return this.Users.update(data, { where: id })
             .then(result => this.defaultResponse(result))
             .catch(error => this.errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY));
     }
 
     /**
-     * Delete a product
+     * Delete a user
      * 
-     * @param {number} id - id of product that will be deleted
+     * @param {number} id - id of user that will be deleted
      * @memberof UsersController
      */
     public delete(id: number) {
