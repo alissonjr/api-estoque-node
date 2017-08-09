@@ -8,4 +8,6 @@ export default {
       underscored: true,
     },
   },
+  jwtSecret: 'est0que',
+  jwtSession: { session: false }
 };
