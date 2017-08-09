@@ -6,4 +6,5 @@ export default interface Product {
     name: string;
     description: string;
     bar_code: string;
+    default_price: number;
 }
