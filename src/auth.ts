@@ -1,9 +1,9 @@
-import passport from 'passport';
+const passport = require('passport');
 import { Strategy, ExtractJwt } from "passport-jwt";
 
-export default app => {
-    const Users = app.datasource.models.Users;
-    const opts = {
+export default function(app) {
+    const Users: any = app.datasource.models.Users;
+    const opts: any = {
         secretOrKey: app.config.jwtSecret,
         jwtFromRequest: ExtractJwt.fromAuthHeader()
     };

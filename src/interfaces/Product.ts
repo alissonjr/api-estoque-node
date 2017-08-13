@@ -1,7 +1,7 @@
 /**
  * Product example definition
  */
-export default interface Product {
+interface Product {
     id?: number;
     name: string;
     type: string;
@@ -9,3 +9,5 @@ export default interface Product {
     bar_code: string;
     default_price: number;
 }
+
+export default Product;

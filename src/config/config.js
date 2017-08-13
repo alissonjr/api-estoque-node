@@ -1,6 +1,6 @@
-export default {
-  database: '',
-  username: '',
+const config = {
+  database: 'loja_teste',
+  username: 'root',
   password: '',
   params: {
     dialect: 'mysql',
@@ -11,3 +11,5 @@ export default {
   jwtSecret: 'est0que',
   jwtSession: { session: false }
 };
+
+export default config;

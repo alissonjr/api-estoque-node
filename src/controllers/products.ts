@@ -1,4 +1,4 @@
-import HttpStatus from 'http-status';
+const HttpStatus = require('http-status');
 import Product from '../interfaces/Product';
 
 /**
@@ -65,7 +65,7 @@ export default class ProductsController {
      * @memberof ProductsController
      */
     public getById(id: number) {
-        return this.Products.findOne({ where: id })
+        return this.Products.findOne({ where: { id } })
             .then(result => this.defaultResponse(result))
             .catch(error => this.errorResponse(error.message));
     }
@@ -90,7 +90,7 @@ export default class ProductsController {
      * @memberof ProductsController
      */
     public update(data: Product, id: number) {
-        return this.Products.update(data, { where: id })
+        return this.Products.update(data, { where: { id } })
             .then(result => this.defaultResponse(result))
             .catch(error => this.errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY));
     }
@@ -102,7 +102,7 @@ export default class ProductsController {
      * @memberof ProductsController
      */
     public delete(id: number) {
-        return this.Products.destroy({ where: id })
+        return this.Products.destroy({ where: { id } })
             .then(result => this.defaultResponse(result, HttpStatus.NO_CONTENT))
             .catch(error => this.errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY));
     }

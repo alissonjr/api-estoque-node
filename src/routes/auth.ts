@@ -1,5 +1,5 @@
-import HttpStatus from 'http-status';
-import jwt from 'jwt-simple';
+const HttpStatus = require('http-status');
+const jwt = require('jwt-simple');
 
 export default app => {
     const config = app.config;

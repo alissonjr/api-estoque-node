@@ -1,4 +1,6 @@
-export default (sequelize, DataType) => {
+import { DataTypes, Sequelize } from "sequelize";
+
+export default function (sequelize: Sequelize, DataType: DataTypes): any {
 	return sequelize.define('Products', {
 		id: {
 			type: DataType.INTEGER,

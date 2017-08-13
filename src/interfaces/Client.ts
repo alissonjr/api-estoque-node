@@ -1,10 +1,12 @@
 /**
- * Cash Moviment example definition
+ * Client example definition
  */
-export default interface CashMoviment {
+interface Client {
     id: number;
     type: string;
     description: string;
     value: string;
     date: Date;
 }
+
+export default Client;

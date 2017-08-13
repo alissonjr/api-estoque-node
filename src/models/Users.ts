@@ -1,6 +1,7 @@
-import bcrypt from 'bcrypt';
+const bcrypt = require('bcrypt');
+import { Sequelize, DataTypes } from 'sequelize';
 
-export default (sequelize, Datatype) => {
+export default function (sequelize: Sequelize, Datatype: DataTypes): any {
     return sequelize.define('Users', {
         id: {
             type: Datatype.INTEGER,
@@ -18,7 +19,10 @@ export default (sequelize, Datatype) => {
             type: Datatype.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true
+                notEmpty: true,
+                isEmail: {
+                    msg: "email needs to be valid"
+                }
             }
         },
         password: {
@@ -36,7 +40,7 @@ export default (sequelize, Datatype) => {
             }
         },
         classMethods: {
-            isPassoword: (encodedPassword, password) => bcrypt.compareSync(password, encodedPassword),
+            isPassoword: (encodedPassword, password) => bcrypt.compareSync(password, encodedPassword)
         }
     });
 }

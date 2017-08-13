@@ -1,24 +1,28 @@
 {
-  "name": "eclesia",
+  "name": "api_estoque",
   "version": "1.0.0",
-  "description": "teste de api",
+  "description": "API para testar funcionalidades do Node.js",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-ts": "tsc --allowJs"
   },
   "author": "Alisson Costa de Oliveira Júnior",
   "license": "ISC",
   "dependencies": {
+    "@types/body-parser": "^1.16.4",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "express-myconnection": "^1.0.4",
+    "gulp": "^3.9.1",
     "http-status": "^1.0.1",
     "jwt-simple": "^0.5.1",
     "mongoose": "^4.9.6",
     "mysql": "^2.13.0",
+    "mysql2": "^1.4.0",
     "node-env-file": "^0.1.8",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
@@ -26,6 +30,7 @@
   },
   "devDependencies": {
     "gulp-documentation": "^3.1.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "typescript": "^2.4.2"
   }
 }

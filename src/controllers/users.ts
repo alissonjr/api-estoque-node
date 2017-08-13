@@ -1,4 +1,4 @@
-import HttpStatus from 'http-status';
+const HttpStatus = require('http-status');
 import User from '../interfaces/User';
 
 /**
@@ -7,20 +7,20 @@ import User from '../interfaces/User';
  * @export
  * @class UsersController
  */
-export default class UsersController {
+class UsersController {
 
-    private Users;
+    private Users: any;
     
     /**
      * Default Response of requesitions
      * 
      * @private
-     * @param {object} data - default response
+     * @param {any} data - default response
      * @param {number} [statusCode=HttpStatus.OK] - status of requesition
      * @returns 
      * @memberof UsersController
      */
-    private defaultResponse(data: object, statusCode: number = HttpStatus.OK) {
+    private defaultResponse(data: any, statusCode: number = HttpStatus.OK): any {
         return { data, statusCode }
     }
 
@@ -33,7 +33,7 @@ export default class UsersController {
      * @returns 
      * @memberof UsersController
      */
-    private errorResponse(message: string, statusCode: number = HttpStatus.BAD_REQUEST){
+    private errorResponse(message: string, statusCode: number = HttpStatus.BAD_REQUEST) {
         return this.defaultResponse({ error: message }, statusCode);
     }
 
@@ -42,7 +42,9 @@ export default class UsersController {
      * @param {any} Users - model with Product's methods
      * @memberof UsersController
      */
-    constructor(Users) {
+    constructor(Users: any) {
+        console.log(Users);
+        
         this.Users = Users;
     }
 
@@ -65,7 +67,7 @@ export default class UsersController {
      * @memberof UsersController
      */
     public getById(id: number) {
-        return this.Users.findOne({ where: id })
+        return this.Users.findOne({ where: { id } })
             .then(result => this.defaultResponse(result))
             .catch(error => this.errorResponse(error.message));
     }
@@ -90,7 +92,7 @@ export default class UsersController {
      * @memberof UsersController
      */
     public update(data: User, id: number) {
-        return this.Users.update(data, { where: id })
+        return this.Users.update(data, { where: { id } })
             .then(result => this.defaultResponse(result))
             .catch(error => this.errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY));
     }
@@ -102,8 +104,10 @@ export default class UsersController {
      * @memberof UsersController
      */
     public delete(id: number) {
-        return this.Users.destroy({ where: id })
+        return this.Users.destroy({ where: { id } })
             .then(result => this.defaultResponse(result, HttpStatus.NO_CONTENT))
             .catch(error => this.errorResponse(error.message, HttpStatus.UNPROCESSABLE_ENTITY));
     }
 }
+
+export default UsersController;
