@@ -1,9 +1,9 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-export default function (sequelize: Sequelize, DataType: DataTypes): any {
-	return sequelize.define('Products', {
+ const Product: any = function (sequelize: Sequelize, DataType: DataTypes): any {
+	return sequelize.define('Product', {
 		id: {
-			type: DataType.INTEGER,
+			type: DataType.INTEGER.UNSIGNED,
 			primaryKey: true,
 			autoIncrement: true
 		},
@@ -23,5 +23,9 @@ export default function (sequelize: Sequelize, DataType: DataTypes): any {
 			allowNull: true,
 		}
 
+	}, {
+		underscored: true
 	});
 }
+
+export default Product;

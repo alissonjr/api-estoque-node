@@ -12,7 +12,7 @@ $ npm install && npm build-ts
 $ npm start
 ```
 
-# Para gerar documentação do código:
+### Para gerar documentação do código:
 ```sh
 $ gulp
 ```

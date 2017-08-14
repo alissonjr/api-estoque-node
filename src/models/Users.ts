@@ -4,7 +4,7 @@ import { Sequelize, DataTypes } from 'sequelize';
 export default function (sequelize: Sequelize, Datatype: DataTypes): any {
     return sequelize.define('Users', {
         id: {
-            type: Datatype.INTEGER,
+            type: Datatype.INTEGER.UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
@@ -33,6 +33,7 @@ export default function (sequelize: Sequelize, Datatype: DataTypes): any {
             }
         }
     }, {
+        underscored: true,
         hooks: {
             beforeCreate: (user) => {
                 const salt = bcrypt.genSaltSync();
