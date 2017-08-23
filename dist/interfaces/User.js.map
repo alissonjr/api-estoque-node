@@ -1,0 +1,1 @@
+{"version":3,"file":"User.js","sourceRoot":"","sources":["../../interfaces/User.ts"],"names":[],"mappings":"","sourcesContent":["interface User {\r\n    id?: number;\r\n    name: string;\r\n    email: string;\r\n    password: string;\r\n}\r\n\r\nexport default User;"]}

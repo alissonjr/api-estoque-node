@@ -1,0 +1,1 @@
+{"version":3,"file":"SalesProduct.js","sourceRoot":"","sources":["../../interfaces/SalesProduct.ts"],"names":[],"mappings":"","sourcesContent":["import Product from \"./Product\";\r\n/**\r\n * Product example definition\r\n */\r\ninterface SalesProduct extends Product {\r\n    disccount: number;\r\n    quantity: number;\r\n}\r\n\r\nexport default SalesProduct;"]}

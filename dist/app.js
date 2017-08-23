@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express = require("express");
+var bodyParser = require("body-parser");
+var auth_1 = require("./auth");
+var config_1 = require("./config/config");
+var datasource_1 = require("./config/datasource");
+var products_1 = require("./routes/products");
+var users_1 = require("./routes/users");
+var auth_2 = require("./routes/auth");
+var app = express();
+app.config = config_1.default;
+app.datasource = datasource_1.default(app);
+app.set('port', 7000);
+app.use(bodyParser.json());
+var auth = auth_1.default(app);
+app.use(auth.initialize());
+app.auth = auth;
+products_1.default(app);
+users_1.default(app);
+auth_2.default(app);
+exports.default = app;
+//# sourceMappingURL=app.js.map

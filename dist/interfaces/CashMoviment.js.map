@@ -1,0 +1,1 @@
+{"version":3,"file":"CashMoviment.js","sourceRoot":"","sources":["../../interfaces/CashMoviment.ts"],"names":[],"mappings":"","sourcesContent":["/**\r\n * Cash Moviment example definition\r\n */\r\ninterface CashMoviment {\r\n    id: number;\r\n    type: string;\r\n    description: string;\r\n    value: string;\r\n    date: Date;\r\n}\r\n\r\nexport default CashMoviment;"]}

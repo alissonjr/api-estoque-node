@@ -1,0 +1,1 @@
+{"version":3,"file":"Client.js","sourceRoot":"","sources":["../../interfaces/Client.ts"],"names":[],"mappings":"","sourcesContent":["/**\r\n * Client example definition\r\n */\r\ninterface Client {\r\n    id: number;\r\n    type: string;\r\n    description: string;\r\n    value: string;\r\n    date: Date;\r\n}\r\n\r\nexport default Client;"]}
